@@ -6,8 +6,8 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 
 import Image from "next/image";
-import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Heart } from "@/components/icons/Heart";
 
 const inter = Inter({ subsets: ["latin"] });
 
