@@ -8,9 +8,10 @@ import { FullHeart } from "@/components/icons/FullHeart";
 
 type Props = {
   results: Results;
+  path: string;
 };
 
-const ImageList = ({ results }: Props) => {
+const ImageList = ({ results, path }: Props) => {
   const [transition, startTransition] = React.useTransition();
   console.log("results", results);
 
@@ -31,7 +32,7 @@ const ImageList = ({ results }: Props) => {
                 className="absolute top-2 right-2 hover:cursor-pointer text-red-500 hover:text-white"
                 onClick={() => {
                   startTransition(() => {
-                    setFavoriteAction(image.public_id, true);
+                    setFavoriteAction(image.public_id, true, path);
                   });
                 }}
               />
@@ -40,7 +41,7 @@ const ImageList = ({ results }: Props) => {
                 className="absolute top-2 right-2 hover:cursor-pointer hover:text-red-500"
                 onClick={() => {
                   startTransition(() => {
-                    setFavoriteAction(image.public_id, false);
+                    setFavoriteAction(image.public_id, false, path);
                   });
                 }}
               />

@@ -1,7 +1,7 @@
 import React from "react";
-import UploadBtn from "./UploadBtn";
 import cloudinary from "cloudinary";
-import ImageList from "./ImageList";
+import UploadBtn from "../gallery/UploadBtn";
+import ImageList from "../gallery/ImageList";
 
 export type Results = {
   resources: {
@@ -10,16 +10,16 @@ export type Results = {
   }[];
 };
 
-const GalleryPage = async () => {
+const FavoritesPage = async () => {
   // const results = (await cloudinary.v2.search
-  //  .expression("resource_type:image")
+  //  .expression("resource_type:image AND tags=favorite")
   //  .sort_by("created_at", "desc")
   //  .max_results(30)
   //  .execute()) as Results;
   let results;
   try {
     results = await cloudinary.v2.search
-      .expression("resource_type:image")
+      .expression("resource_type:image AND tags=favorite")
       .sort_by("created_at", "desc")
       .with_field("tags")
       .max_results(30)
@@ -31,14 +31,14 @@ const GalleryPage = async () => {
   return (
     <section>
       <div className="flex justify-between items-center">
-        <h1 className="text-4xl font-bold">Gallery</h1>
+        <h1 className="text-4xl font-bold">Favorites</h1>
         <UploadBtn />
       </div>
       <div className="mt-8">
-        <ImageList results={results} path="/gallery" />
+        <ImageList results={results} path="/favorites" />
       </div>
     </section>
   );
 };
 
-export default GalleryPage;
+export default FavoritesPage;
