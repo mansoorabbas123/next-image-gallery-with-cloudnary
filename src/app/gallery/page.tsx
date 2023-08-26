@@ -25,7 +25,7 @@ const GalleryPage = async () => {
       .max_results(30)
       .execute();
   } catch (error) {
-    console.log(error);
+    console.log("error===================", error);
   }
 
   return (

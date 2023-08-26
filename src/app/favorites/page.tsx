@@ -2,6 +2,7 @@ import React from "react";
 import cloudinary from "cloudinary";
 import UploadBtn from "../gallery/UploadBtn";
 import ImageList from "../gallery/ImageList";
+import FavoriteList from "./FavoriteList";
 
 export type Results = {
   resources: {
@@ -35,7 +36,7 @@ const FavoritesPage = async () => {
         <UploadBtn />
       </div>
       <div className="mt-8">
-        <ImageList results={results} path="/favorites" />
+        <FavoriteList results={results} path="/favorites" />
       </div>
     </section>
   );

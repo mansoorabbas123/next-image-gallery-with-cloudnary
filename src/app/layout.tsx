@@ -99,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="light">
       <body className={inter.className}>
         <div className="border-b">
           <div className="flex h-16 items-center px-4 container mx-auto">
